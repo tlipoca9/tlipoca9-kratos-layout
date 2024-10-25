@@ -55,12 +55,18 @@ generate:
 	go generate ./...
 	go mod tidy
 
+.PHONY: lint
+# golangci-lint
+lint:
+	golangci-lint run --fix ./...
+
 .PHONY: all
 # generate all
 all:
 	make api;
 	make config;
 	make generate;
+	make lint;
 
 # show help
 help:
