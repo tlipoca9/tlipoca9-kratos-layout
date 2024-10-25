@@ -1,4 +1,4 @@
-module github.com/go-kratos/kratos-layout
+module github.com/tlipoca9/tlipoca9-kratos-layout
 
 go 1.23
 
