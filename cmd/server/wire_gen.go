@@ -7,16 +7,17 @@
 package main
 
 import (
+	"github.com/go-kratos/kratos/v2"
+	"github.com/go-kratos/kratos/v2/log"
 	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/biz"
 	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/conf"
 	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/data"
 	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/server"
 	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/service"
-	"github.com/go-kratos/kratos/v2"
-	"github.com/go-kratos/kratos/v2/log"
 )
 
 import (
+	_ "github.com/KimMachineGun/automemlimit"
 	_ "go.uber.org/automaxprocs"
 )
 
