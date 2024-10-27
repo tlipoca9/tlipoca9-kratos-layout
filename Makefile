@@ -50,7 +50,8 @@ api:
 .PHONY: build
 # build
 build:
-	mkdir -p bin/ && go build -ldflags "-X main.Version=$(VERSION)" -o ./bin/ ./...
+	mkdir -p bin/
+	go build -trimpath -ldflags="-s -w -extldflags=-static -X main.Version=$(VERSION)" -o ./bin/ ./...
 
 .PHONY: generate
 # generate
@@ -72,6 +73,7 @@ all:
 	make lint;
 
 # show help
+.PHONY: help
 help:
 	@echo ''
 	@echo 'Usage:'
