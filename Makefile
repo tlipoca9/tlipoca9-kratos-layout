@@ -1,5 +1,6 @@
 GOHOSTOS:=$(shell go env GOHOSTOS)
 GOPATH:=$(shell go env GOPATH)
+NAME=github.com/tlipoca9/tlipoca9-kratos-layout
 VERSION=$(shell git describe --tags --always)
 
 ifeq ($(GOHOSTOS), windows)
@@ -51,7 +52,7 @@ api:
 # build
 build:
 	mkdir -p bin/
-	go build -trimpath -ldflags="-s -w -extldflags=-static -X main.Version=$(VERSION)" -o ./bin/ ./...
+	go build -trimpath -ldflags="-s -w -extldflags=-static -X main.Name=$(NAME) -X main.Version=$(VERSION)" -o ./bin/ ./...
 
 .PHONY: generate
 # generate

@@ -3,7 +3,9 @@ package main
 import (
 	"flag"
 	"os"
+	"time"
 
+	kratoszerolog "github.com/go-kratos/kratos/contrib/log/zerolog/v2"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"
 	"github.com/go-kratos/kratos/v2/config/file"
@@ -11,6 +13,7 @@ import (
 	"github.com/go-kratos/kratos/v2/middleware/tracing"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/go-kratos/kratos/v2/transport/http"
+	"github.com/rs/zerolog"
 
 	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/conf"
 
@@ -50,8 +53,9 @@ func newApp(logger log.Logger, gs *grpc.Server, hs *http.Server) *kratos.App {
 
 func main() {
 	flag.Parse()
-	logger := log.With(log.NewStdLogger(os.Stdout),
-		"ts", log.DefaultTimestamp,
+	zerologLogger := zerolog.New(os.Stdout)
+	logger := log.With(kratoszerolog.NewLogger(&zerologLogger),
+		"ts", log.Timestamp(time.RFC3339Nano),
 		"caller", log.DefaultCaller,
 		"service.id", id,
 		"service.name", Name,

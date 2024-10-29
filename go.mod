@@ -4,8 +4,10 @@ go 1.23
 
 require (
 	github.com/KimMachineGun/automemlimit v0.6.1
+	github.com/go-kratos/kratos/contrib/log/zerolog/v2 v2.0.0-20241028134144-850877209eaa
 	github.com/go-kratos/kratos/v2 v2.8.1
 	github.com/google/wire v0.6.0
+	github.com/rs/zerolog v1.30.0
 	go.uber.org/automaxprocs v1.6.0
 	google.golang.org/genproto/googleapis/api v0.0.0-20241021214115-324edc3d5d38
 	google.golang.org/grpc v1.67.1
@@ -26,6 +28,8 @@ require (
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/mux v1.8.1 // indirect
+	github.com/mattn/go-colorable v0.1.12 // indirect
+	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/opencontainers/runtime-spec v1.2.0 // indirect
 	github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
