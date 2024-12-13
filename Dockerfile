@@ -1,3 +1,5 @@
+# docker build -t github.com/tlipoca9/tlipoca9-kratos-layout .
+# docker run -p 8000:8000 -p 9000:9000 -v $(pwd)/configs:/data/conf github.com/tlipoca9/tlipoca9-kratos-layout
 FROM golang:1.23-alpine3.20 AS builder
 RUN apk update && apk upgrade
 RUN apk add git make
