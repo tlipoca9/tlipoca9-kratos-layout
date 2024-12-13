@@ -11,11 +11,13 @@ import (
 	"github.com/go-kratos/kratos/v2/config/file"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/tracing"
+	"github.com/go-kratos/kratos/v2/transport"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/go-kratos/kratos/v2/transport/http"
 	"github.com/rs/zerolog"
 
 	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/conf"
+	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/server"
 
 	_ "github.com/KimMachineGun/automemlimit"
 	_ "go.uber.org/automaxprocs"
@@ -37,17 +39,19 @@ func init() {
 	flag.StringVar(&flagconf, "conf", "./configs", "config path, eg: -conf config.yaml")
 }
 
-func newApp(logger log.Logger, gs *grpc.Server, hs *http.Server) *kratos.App {
+func newApp(logger log.Logger, gs *grpc.Server, hs *http.Server, pf *server.ProfileServer) *kratos.App {
+	srvs := []transport.Server{gs, hs}
+	if pf != nil {
+		srvs = append(srvs, pf)
+	}
+
 	return kratos.New(
 		kratos.ID(id),
 		kratos.Name(Name),
 		kratos.Version(Version),
 		kratos.Metadata(map[string]string{}),
 		kratos.Logger(logger),
-		kratos.Server(
-			gs,
-			hs,
-		),
+		kratos.Server(srvs...),
 	)
 }
 

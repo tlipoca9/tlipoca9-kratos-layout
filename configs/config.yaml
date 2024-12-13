@@ -5,6 +5,10 @@ server:
   grpc:
     addr: 0.0.0.0:9000
     timeout: 1s
+  profile:
+    enabled: true
+    addr: 0.0.0.0:6060
+    timeout: 1s
 data:
   database:
     driver: mysql

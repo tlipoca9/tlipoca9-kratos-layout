@@ -21,8 +21,15 @@ message Server {
     string addr = 2;
     google.protobuf.Duration timeout = 3;
   }
+  message Profile {
+    bool enabled = 1;
+    string network = 2;
+    string addr = 3;
+    google.protobuf.Duration timeout = 4;
+  }
   HTTP http = 1;
   GRPC grpc = 2;
+  Profile profile = 3;
 }
 
 message Data {
