@@ -48,6 +48,11 @@ api:
 	       --openapi_out=fq_schema_naming=true,default_response=false:. \
 	       $(API_PROTO_FILES)
 
+.PHONY: dev
+# dev
+dev:
+	kratos run -w .
+
 .PHONY: build
 # build
 build:

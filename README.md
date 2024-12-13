@@ -4,6 +4,10 @@
 ```
 go install github.com/go-kratos/kratos/cmd/kratos/v2@latest
 ```
+## Use this Template to Create Project
+```
+kratos new -r https://github.com/tlipoca9/tlipoca9-kratos-layout.git <project>
+```
 ## Create a service
 ```
 # Create a template project
