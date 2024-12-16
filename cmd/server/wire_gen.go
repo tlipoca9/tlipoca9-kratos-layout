@@ -18,6 +18,7 @@ import (
 
 import (
 	_ "github.com/KimMachineGun/automemlimit"
+	_ "github.com/tlipoca9/tlipoca9-kratos-layout/internal/codec/toml"
 	_ "go.uber.org/automaxprocs"
 )
 

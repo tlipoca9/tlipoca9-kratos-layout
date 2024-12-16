@@ -9,7 +9,6 @@ import (
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"
 	"github.com/go-kratos/kratos/v2/config/file"
-	"github.com/go-kratos/kratos/v2/encoding"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/tracing"
 	"github.com/go-kratos/kratos/v2/transport"
@@ -17,11 +16,11 @@ import (
 	"github.com/go-kratos/kratos/v2/transport/http"
 	"github.com/rs/zerolog"
 
-	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/codec"
 	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/conf"
 	"github.com/tlipoca9/tlipoca9-kratos-layout/internal/server"
 
 	_ "github.com/KimMachineGun/automemlimit"
+	_ "github.com/tlipoca9/tlipoca9-kratos-layout/internal/codec/toml"
 	_ "go.uber.org/automaxprocs"
 )
 
@@ -70,7 +69,6 @@ func main() {
 		"span.id", tracing.SpanID(),
 	)
 
-	encoding.RegisterCodec(codec.TOML{})
 	c := config.New(
 		config.WithSource(
 			file.NewSource(flagconf),
