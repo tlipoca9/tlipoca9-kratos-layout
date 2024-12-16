@@ -3,6 +3,7 @@ module github.com/tlipoca9/tlipoca9-kratos-layout
 go 1.23
 
 require (
+	github.com/BurntSushi/toml v1.4.0
 	github.com/KimMachineGun/automemlimit v0.6.1
 	github.com/go-kratos/kratos/contrib/log/zerolog/v2 v2.0.0-20241028134144-850877209eaa
 	github.com/go-kratos/kratos/v2 v2.8.1
